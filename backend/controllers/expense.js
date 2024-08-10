@@ -14,11 +14,13 @@ exports.addExpense = async (req, res) => {
     if (!title || !category || !description || !amount || !date) {
       return res.status(400).json({ message: "Some fields are missing" })
     }
-    if (amount <= 0 || typeof amount != "number") {
+    if (amount <= 0) {
       return res.status(400).json({ message: "Invalid amount" })
     }
-    await expense.save()
-    return res.status(200).json({ message: "Expense added" })
+    const response = await expense.save()
+    return res
+      .status(200)
+      .json({ message: "Expense added", _id: response?._id })
   } catch (error) {
     console.log(error)
     return res.status(500).json({ message: "Failed to add expense" })

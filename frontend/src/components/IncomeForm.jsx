@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useGlobalContext } from "../contexts/globalContext"
 
 export default function Form() {
-  const { addIncome, getIncomes } = useGlobalContext()
+  const { addIncome } = useGlobalContext()
   const [inputState, setinputState] = useState({
     title: "",
     amount: "",
@@ -20,6 +20,13 @@ export default function Form() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     addIncome(inputState)
+    setinputState({
+      title: "",
+      amount: "",
+      date: "",
+      category: "",
+      description: "",
+    })
   }
   return (
     <form className="flex flex-col items-start gap-4" onSubmit={handleSubmit}>

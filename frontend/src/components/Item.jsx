@@ -1,30 +1,27 @@
 import React, { useContext } from "react"
-import MoneyIcon from "../components/icons/MoneyIcon"
-import CalendarIcon from "../components/icons/CalendarIcon"
-import TrashIcon from "../components/icons/TrashIcon"
+import MoneyIcon from "./icons/MoneyIcon"
+import CalendarIcon from "./icons/CalendarIcon"
+import TrashIcon from "./icons/TrashIcon"
 import { useGlobalContext } from "../contexts/globalContext"
+import { dateFormat } from "../utils/dateFormat"
 
-export default function IncomeItem({
+export default function Item({
   id,
   title,
   amount,
   date,
   category,
   description,
+  deleteItem,
   indicatorColor,
   type,
 }) {
-  const { getIncomes, deleteIncome } = useGlobalContext()
   const categoryIcon = () => {
     // switch (category) {
     //   case "example":
     //     return <p>Example</p>
     // }
     return <p>icon</p>
-  }
-
-  const handleDelete = async (id) => {
-    deleteIncome(id)
   }
 
   return (
@@ -39,11 +36,11 @@ export default function IncomeItem({
           </div>
           <div className="flex">
             <CalendarIcon />
-            {date}
+            {dateFormat(date)}
           </div>
           <p>{description}</p>
         </div>
-        <button onClick={() => handleDelete(id)}>
+        <button onClick={() => deleteItem(id)}>
           <TrashIcon className="h-10 w-10 p-2 bg-black rounded-full text-white" />
         </button>
       </div>
