@@ -25,7 +25,7 @@ export default function Item({
   }
 
   return (
-    <div className="bg-gray-700 flex items-center gap-4 border-2 border-white shadow_[0_1px_15px_rgba(0,0,0,0.06)] rounded-lg p-2 mb-4">
+    <div className="bg-gray-200 flex items-center justify-between gap-4 border-2 border-white shadow-[0_1px_10px_rgba(0,0,0,0.2)] rounded-lg py-2 px-4 mb-4">
       <div>{categoryIcon()}</div>
       <div className="flex flex-col items-center justify-around">
         <h5>{title}</h5>
@@ -40,10 +40,10 @@ export default function Item({
           </div>
           <p>{description}</p>
         </div>
-        <button onClick={() => deleteItem(id)}>
-          <TrashIcon className="h-10 w-10 p-2 bg-black rounded-full text-white" />
-        </button>
       </div>
+      <button onClick={() => deleteItem(id)}>
+        <TrashIcon className="h-10 w-10 p-2 bg-black rounded-full text-white" />
+      </button>
     </div>
   )
 }

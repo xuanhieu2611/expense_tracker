@@ -41,7 +41,9 @@ exports.deleteExpense = async (req, res) => {
   const { id } = req.params
   ExpenseSchema.findByIdAndDelete(id)
     .then((expense) => {
-      return res.status(200).json({ message: "Expense deleted" })
+      return res
+        .status(200)
+        .json({ message: "Expense deleted", _id: expense._id })
     })
     .catch((err) => {
       return res.status(500).json({ message: "Failed to delete an expense" })

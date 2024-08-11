@@ -44,11 +44,11 @@ export default function Navigation({ active, setActive }) {
         <h2 className="text-center text-2xl font-bold min-w-20">Hieu</h2>
         {/* <p className="text-center">Your money</p> */}
       </div>
-      <ul className="flex flex-1 flex-col gap-3 mr-4 mt-8">
+      <ul className="flex flex-1 flex-col gap-3 mr-4 mt-8 w-full">
         {menuItems.map((item) => (
           <li
             key={item.id}
-            className={`flex gap-5 w-full my-1 hover:cursor-pointer text-gray-600 hover:text-gray-950 ease-in-out transition-all duration-300 px-5 py-1 ${
+            className={`flex justify-center gap-5 w-full ml-16 my-1 hover:cursor-pointer text-gray-600 hover:text-gray-950 ease-in-out transition-all duration-300 px-5 py-1 ${
               active == item.id
                 ? "font-bold border-l-4 rounded-sm border-gray-950 text-gray-950 outline-8"
                 : ""
