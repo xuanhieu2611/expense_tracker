@@ -34,12 +34,12 @@ const menuItems = [
 
 export default function Navigation({ active, setActive }) {
   return (
-    <div className="w-[378px] h-full border-2 border-gray-700 rounded-xl bg-slate-100/80 backdrop-blur-sm flex flex-col justify-between p-5 items-center">
+    <div className="w-[200px] xl:w-[378px] h-full border-2 border-gray-700 rounded-xl bg-slate-100/80 backdrop-blur-sm flex flex-col justify-between p-5 items-center">
       <div className="flex items-center gap-4">
         <img
           src={avatar}
           alt="Profile Avatar"
-          className="w-20 h-20 rounded-full border-2 border-white object-cover bg-white shadow-[0_1px_17px_rgba(0,0,0,0.6)]"
+          className="w-10 h-10 xl:w-20 xl:h-20 rounded-full border-2 border-white object-cover bg-white shadow-[0_1px_17px_rgba(0,0,0,0.6)]"
         />
         <h2 className="text-center text-2xl font-bold min-w-20">Hieu</h2>
         {/* <p className="text-center">Your money</p> */}
@@ -48,7 +48,7 @@ export default function Navigation({ active, setActive }) {
         {menuItems.map((item) => (
           <li
             key={item.id}
-            className={`flex justify-center gap-5 w-full ml-16 my-1 hover:cursor-pointer text-gray-600 hover:text-gray-950 ease-in-out transition-all duration-300 px-5 py-1 ${
+            className={`flex justify-center gap-2 xl:gap-5 w-full xl:ml-16 my-1 hover:cursor-pointer text-gray-600 hover:text-gray-950 ease-in-out transition-all duration-300 px-1 xl:px-5 py-1 ${
               active == item.id
                 ? "font-bold border-l-4 rounded-sm border-gray-950 text-gray-950 outline-8"
                 : ""

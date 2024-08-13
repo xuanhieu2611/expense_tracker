@@ -16,7 +16,7 @@ export default function Income({ displayClassName }) {
         </span>
       </h2>
       <div className="flex justify-between gap-10">
-        <div className="p-3 relative">
+        <div className="relative">
           <IncomeForm />
         </div>
         <div className="w-full">

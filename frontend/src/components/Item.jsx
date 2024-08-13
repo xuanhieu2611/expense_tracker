@@ -27,14 +27,14 @@ export default function Item({
   return (
     <div className="bg-gray-200 flex items-center justify-between gap-4 border-2 border-white shadow-[0_1px_10px_rgba(0,0,0,0.2)] rounded-lg py-2 px-4 mb-4">
       <div>{categoryIcon()}</div>
-      <div className="flex flex-col items-center justify-around">
+      <div className="flex flex-1 flex-col items-center justify-around mx-4">
         <h5>{title}</h5>
-        <div className="flex">
-          <div className="flex">
+        <div className="flex w-full justify-start">
+          <div className="flex w-[200px]">
             <MoneyIcon />
             {amount}
           </div>
-          <div className="flex">
+          <div className="flex w-[2 50px]">
             <CalendarIcon />
             {dateFormat(date)}
           </div>

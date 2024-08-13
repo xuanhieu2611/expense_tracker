@@ -52,16 +52,16 @@ export default function Form() {
         name="date"
         placeholder="2024-08-10"
         onChange={handleInput("date")}
-        className="w-full p-2 rounded-md border-4 border-white bg-transparent shadow-[0_1px_10px_rgba(0,0,0,0.2)] text-gray-800"
+        className="p-2 rounded-md border-4 border-white bg-transparent shadow-[0_1px_10px_rgba(0,0,0,0.2)] text-gray-800"
       />
-      <div className="w-full flex justify-end">
+      <div className="flex justify-end">
         <select
           required
           value={category}
           id="category"
           name="category"
           onChange={handleInput("category")}
-          className=" p-2 rounded-md border-4 border-white bg-transparent shadow-[0_1px_10px_rgba(0,0,0,0.2)] text-gray-800"
+          className="p-2 rounded-md border-4 border-white bg-transparent shadow-[0_1px_10px_rgba(0,0,0,0.2)] text-gray-800"
         >
           <option value="" disabled>
             Select Option
@@ -81,7 +81,7 @@ export default function Form() {
         name="description"
         placeholder="Monthly salary"
         onChange={handleInput("description")}
-        className="w-full p-2 rounded-md border-4 border-white bg-transparent shadow-[0_1px_10px_rgba(0,0,0,0.2)] text-gray-800"
+        className="p-2 rounded-md border-4 border-white bg-transparent shadow-[0_1px_10px_rgba(0,0,0,0.2)] text-gray-800"
       />
       <button className="p-3 border-2 border-white rounded-xl bg-green-300 hover:bg-green-500">
         Add income
