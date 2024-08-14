@@ -13,6 +13,9 @@ app.use(express.json())
 app.use(cors())
 
 // routes
+app.get("/", (req, res) => {
+  res.status(200).json("Hello")
+})
 app.use("/api/transactions", transactionRouter)
 
 const server = () => {

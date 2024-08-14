@@ -4,7 +4,8 @@ import { useUser } from "@clerk/clerk-react"
 
 const GlobalContext = createContext()
 
-const BASE_URL = "http://localhost:5000/api/transactions/"
+// const BASE_URL = "http://localhost:5000/api/transactions/"
+const BASE_URL = "https://expense-tracker-api-mu.vercel.app/api/transactions/"
 
 export const GlobalContextProvider = ({ children }) => {
   const [incomes, setIncomes] = useState([])
