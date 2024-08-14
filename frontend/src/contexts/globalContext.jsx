@@ -1,5 +1,6 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 import axios from "axios"
+import { useUser } from "@clerk/clerk-react"
 
 const GlobalContext = createContext()
 
@@ -9,6 +10,7 @@ export const GlobalContextProvider = ({ children }) => {
   const [incomes, setIncomes] = useState([])
   const [expenses, setExpenses] = useState([])
   const [error, setError] = useState(null)
+  const { user } = useUser()
 
   // Income Calculation
   const addIncome = async (income) => {
@@ -24,8 +26,9 @@ export const GlobalContextProvider = ({ children }) => {
   }
 
   const getIncomes = async () => {
+    if (!user) return
     const response = await axios
-      .get(`${BASE_URL}get-incomes`)
+      .get(`${BASE_URL}get-incomes/${user.id}`)
       .catch((error) => {
         console.log(error?.response.data.message)
         setError(error?.response.data.message)
@@ -67,8 +70,9 @@ export const GlobalContextProvider = ({ children }) => {
   }
 
   const getExpenses = async () => {
+    if (!user) return
     const response = await axios
-      .get(`${BASE_URL}get-expenses`)
+      .get(`${BASE_URL}get-expenses/${user.id}`)
       .catch((error) => {
         console.log(error?.response.data.message)
         setError(error?.response.data.message)
@@ -116,6 +120,10 @@ export const GlobalContextProvider = ({ children }) => {
     return transactions
   }
 
+  useEffect(() => {
+    getIncomes()
+    getExpenses()
+  }, [user])
   return (
     <GlobalContext.Provider
       value={{

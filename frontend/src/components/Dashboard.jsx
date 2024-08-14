@@ -14,11 +14,6 @@ export default function Dashboard({ displayClassName }) {
     totalBalance,
   } = useGlobalContext()
 
-  useEffect(() => {
-    getExpenses()
-    getIncomes()
-  }, [])
-
   return (
     <div className={`${displayClassName} p-5`}>
       <h1 className="text-center text-2xl mb-5">All Transactions</h1>

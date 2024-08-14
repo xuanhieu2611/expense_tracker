@@ -23,7 +23,10 @@ export default function Transaction({ displayClassName }) {
           {transactions &&
             transactions.map((item) => {
               return (
-                <tr className="border-white border-2 rounded-lg shadow-[0px_1px_10px_rgba(0,0,0,0.2)] text-center">
+                <tr
+                  className="border-white border-2 rounded-lg shadow-[0px_1px_10px_rgba(0,0,0,0.2)] text-center"
+                  key={item._id}
+                >
                   <td className="p-2 rounded-lg">{item.title}</td>
                   <td>{item.type}</td>
                   <td>{item.amount}</td>

@@ -1,8 +1,10 @@
 import { useState } from "react"
 import { useGlobalContext } from "../contexts/globalContext"
+import { useUser } from "@clerk/clerk-react"
 
 export default function ExpenseForm() {
   const { addExpense } = useGlobalContext()
+  const { user } = useUser()
   const [inputState, setinputState] = useState({
     title: "",
     amount: "",
@@ -19,7 +21,8 @@ export default function ExpenseForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    addExpense(inputState)
+    const newExpense = { ...inputState, userID: user?.id }
+    addExpense(newExpense)
     setinputState({
       title: "",
       amount: "",

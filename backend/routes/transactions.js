@@ -9,12 +9,12 @@ const router = require("express").Router()
 
 // Income routes
 router.post("/add-income", addIncome)
-router.get("/get-incomes", getIncomes)
+router.get("/get-incomes/:id", getIncomes)
 router.delete("/delete-income/:id", deleteIncome)
 
 // Expense routes
 router.post("/add-expense", addExpense)
-router.get("/get-expenses", getExpenses)
+router.get("/get-expenses/:id", getExpenses)
 router.delete("/delete-expense/:id", deleteExpense)
 
 module.exports = router

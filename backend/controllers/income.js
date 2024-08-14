@@ -1,8 +1,9 @@
 const IncomeSchema = require("../models/incomeModel")
 
 exports.addIncome = async (req, res) => {
-  const { title, amount, category, description, date } = req.body
+  const { userID, title, amount, category, description, date } = req.body
   const income = IncomeSchema({
+    userID,
     title,
     amount,
     category,
@@ -27,7 +28,10 @@ exports.addIncome = async (req, res) => {
 
 exports.getIncomes = async (req, res) => {
   try {
-    const incomes = await IncomeSchema.find().sort({ createdAt: -1 })
+    const { id } = req.params // User ID
+    const incomes = await IncomeSchema.find({ userID: id }).sort({
+      createdAt: -1,
+    })
     return res.status(200).json(incomes)
   } catch (error) {
     console.log(error)
@@ -36,7 +40,7 @@ exports.getIncomes = async (req, res) => {
 }
 
 exports.deleteIncome = async (req, res) => {
-  const { id } = req.params
+  const { id } = req.params // Object ID
   IncomeSchema.findByIdAndDelete(id)
     .then((income) => {
       return res
